@@ -1,5 +1,7 @@
 package org.jsonparser;
 
+import org.jsonparser.enums.JsonTokenType;
+
 public class JsonToken {
     public JsonTokenType getTokenType() {
         return tokenType;

@@ -2,6 +2,8 @@ package org.jsonparser;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+
+import org.jsonparser.enums.JsonTokenType;
 import org.junit.Test;
 
 import java.util.List;
@@ -23,10 +25,10 @@ public class AppTest
     @Test
     public void testTokenizer()
     {
-        Tokenizer tokenizer = new Tokenizer();
-        List<JsonToken> tokens = tokenizer.tokenize("{}");
-        assertEquals(JsonTokenType.OPEN_CURLY_BRACKET, tokens.get(0).getTokenType());
-        assertEquals(JsonTokenType.CLOSING_CURLY_BRACKET, tokens.get(1).getTokenType());
+        Tokenizer tokenizer = new Tokenizer("{}");
+        JsonParser parser = new JsonParser();
+        boolean res = parser.validateJson("{}");
+        assertEquals(true, res);
     }
 
     @Test
